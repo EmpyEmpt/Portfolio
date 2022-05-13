@@ -1,80 +1,45 @@
 import 'package:flutter/material.dart';
 
-import './components/color_text.dart';
+import './components/texts.dart';
 
 class EarlyAbout extends StatelessWidget {
   static const double spacing = 10.0;
-  static Color color = Colors.white.withAlpha(200);
-  static const double fontSize = 30;
   const EarlyAbout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
-          Text(
-            "Let's get to know each other!",
-            style: TextStyle(
-              fontSize: 70,
-              fontWeight: FontWeight.bold,
-              color: color,
-            ),
+        children: const [
+          AboutText(
+            text: "Let's get to know each other!",
+            fontSize: 70,
+            fontWeight: FontWeight.w900,
+            fontFamily: 'Nunito ExtraBold',
           ),
-          const SizedBox(height: 40),
-          Text(
-            "I'm Empy, but passport says that my name's Ilya...",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
-          const SizedBox(height: spacing),
-          Text(
-            "I'm a junior (for now) Data Scientist and I'm very passinoate about what I'm doing",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
-          const SizedBox(height: spacing),
-          Text(
-            "Over my journey I've created a few things, earned a few praises and learned a whole lot",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
-          const SizedBox(height: spacing),
-          Text(
-            "(with much more to come)",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
-          const SizedBox(height: spacing),
-          Text(
-            "And I enjoy doing much more than just progress in this field!",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
-          const SizedBox(height: spacing),
-          Text(
-            "Let me show you!",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
+          SizedBox(height: 40),
+          AboutText(text: "I'm Empy, but passport says that my name's Ilya..."),
+          SizedBox(height: spacing),
+          AboutText(
+              text:
+                  "I'm a junior (for now) Data Scientist and I'm very passinoate about what I'm doing"),
+          SizedBox(height: spacing),
+          AboutText(
+              text:
+                  "Over my journey I've created a few things, earned a few praises and learned a whole lot"),
+          SizedBox(height: spacing),
+          AboutText(text: "(with much more to come)"),
+          SizedBox(height: spacing),
+          AboutText(
+              text:
+                  "And I enjoy doing much more than just progress in this field!"),
+          SizedBox(height: spacing),
+          AboutText(text: "Let me show you!"),
+          SizedBox(height: 5),
+          AboutText(
+              text: "Psst... QR-codes are clickable...",
+              fontSize: 15,
+              color: Colors.white),
         ],
       ),
     );
@@ -90,39 +55,23 @@ class LateAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(40),
+      padding: const EdgeInsets.all(40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(
-            "Wow, more information!",
-            style: TextStyle(
+          const AboutText(
+              text: "Wow, more information!",
               fontSize: 70,
-              fontWeight: FontWeight.bold,
-              color: color,
-            ),
-          ),
+              fontWeight: FontWeight.w900),
           const SizedBox(height: spacing),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                "Currently I'm second-year undergraduate in ",
-                style: TextStyle(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.w400,
-                  color: color,
-                ),
-              ),
+              const AboutText(
+                  text: "Currently I'm second-year undergraduate in "),
               GradientText(
-                text: Text(
-                  "'Simulation modeling and data analysis'",
-                  style: TextStyle(
-                    fontSize: fontSize - 1,
-                    // fontWeight: FontWeight.w400,
-                    color: color,
-                  ),
-                ),
+                text: const AboutText(
+                    text: "'Simulation modeling and data analysis'"),
                 gradient: LinearGradient(
                   colors: [
                     Colors.red.shade200,
@@ -132,36 +81,14 @@ class LateAbout extends StatelessWidget {
               ),
             ],
           ),
-          // Text(
-          //   "Currently I'm second-year undergraduate in 'Simulation modeling and data analysis'",
-          //   style: TextStyle(
-          //     fontSize: fontSize,
-          //     fontWeight: FontWeight.w400,
-          //     color: color,
-          //   ),
-          // ),
           const SizedBox(height: spacing),
-          Text(
-            "And I'm planning on getting a Masters!",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
+          const AboutText(text: "And I'm planning on getting a Masters!"),
           const SizedBox(height: spacing),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GradientText(
-                text: Text(
-                  "Mean grade - 4.6,",
-                  style: TextStyle(
-                    fontSize: fontSize - 1,
-                    fontWeight: FontWeight.w400,
-                    color: color,
-                  ),
-                ),
+                text: const AboutText(text: "Mean grade - 4.6,"),
                 gradient: LinearGradient(
                   colors: [
                     Colors.green.shade700,
@@ -169,43 +96,18 @@ class LateAbout extends StatelessWidget {
                   ],
                 ),
               ),
-              Text(
-                " it's not that hard to be honest, hense why I have lots of time",
-                style: TextStyle(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.w400,
-                  color: color,
-                ),
-              ),
+              const AboutText(
+                  text:
+                      " it's not that hard to be honest, hense why I have lots of time"),
             ],
           ),
-          // Text(
-          //   "Mean grade - 4.6, it's not that hard to be honest, hense why I have lots of time",
-          //   style: TextStyle(
-          //     fontSize: fontSize,
-          //     fontWeight: FontWeight.w400,
-          //     color: color,
-          //   ),
-          // ),
           const SizedBox(height: spacing),
-          Text(
-            "It's fun doing things myself, but getting paid for it and learning a lot more...",
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
+          const AboutText(
+              text:
+                  "It's fun doing things myself, but getting paid for it and learning a lot more..."),
           const SizedBox(height: spacing),
           GradientText(
-            text: Text(
-              "Sounds like a dream, but I'm trying!",
-              style: TextStyle(
-                fontSize: fontSize - 1,
-                fontWeight: FontWeight.w400,
-                color: color,
-              ),
-            ),
+            text: const AboutText(text: "Sounds like a dream, but I'm trying!"),
             gradient: LinearGradient(
               colors: [
                 Colors.red.shade500,
@@ -217,25 +119,13 @@ class LateAbout extends StatelessWidget {
               ],
             ),
           ),
-          // Text(
-          //   "Sounds like a dream, but I'm trying!",
-          //   style: TextStyle(
-          //     fontSize: fontSize,
-          //     fontWeight: FontWeight.w400,
-          //     color: color,
-          //   ),
-          // ),
           const SizedBox(height: 100),
-          Align(
+          const Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              "Oh, yeah, my skills:",
-              style: TextStyle(
+            child: AboutText(
+                text: "Oh, yeah, my skills:",
                 fontSize: 70,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
-            ),
+                fontWeight: FontWeight.w900),
           ),
           const SizedBox(height: spacing),
           Row(
@@ -244,54 +134,21 @@ class LateAbout extends StatelessWidget {
               // Category
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Languages: ",
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
-                  Text(
-                    "DS libraries: ",
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
-                  Text(
-                    "Other python libraries:    ",
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
-                  Text(
-                    "Technologies: ",
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
+                children: const [
+                  AboutText(text: "Languages: "),
+                  AboutText(text: "DS libraries: "),
+                  AboutText(text: "Other python libraries:    "),
+                  AboutText(text: "Technologies: "),
                 ],
               ),
               // Names
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 6),
                   GradientText(
-                    text: Text(
-                      "Python, C++, Flutter/Dart",
-                      style: TextStyle(
-                        fontSize: fontSize - 10,
-                        fontWeight: FontWeight.w400,
-                        color: color,
-                      ),
-                    ),
+                    text: const AboutText(
+                        text: "Python, C++, Flutter/Dart", fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.red.shade200,
@@ -299,16 +156,13 @@ class LateAbout extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 12),
+                  // const Spacer(),
                   GradientText(
-                    text: Text(
-                      "Tensofrlow, FastAI, Scikit, Pandas, Seaborn & matplotlib, open-cv",
-                      style: TextStyle(
-                        fontSize: fontSize - 10,
-                        fontWeight: FontWeight.w400,
-                        color: color,
-                      ),
-                    ),
+                    text: const AboutText(
+                        text:
+                            "Tensofrlow, FastAI, Scikit, Pandas, Seaborn & matplotlib, open-cv",
+                        fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.blue.shade500,
@@ -317,16 +171,10 @@ class LateAbout extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 12),
                   GradientText(
-                    text: Text(
-                      "Numpy, DLib, Flask",
-                      style: TextStyle(
-                        fontSize: fontSize - 10,
-                        fontWeight: FontWeight.w400,
-                        color: color,
-                      ),
-                    ),
+                    text: const AboutText(
+                        text: "Numpy, DLib, Flask", fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.yellow.shade200,
@@ -334,16 +182,10 @@ class LateAbout extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 12),
                   GradientText(
-                    text: Text(
-                      "Git, DVC, SQL, Docker, Google",
-                      style: TextStyle(
-                        fontSize: fontSize - 10,
-                        fontWeight: FontWeight.w400,
-                        color: color,
-                      ),
-                    ),
+                    text: const AboutText(
+                        text: "Git, DVC, SQL, Docker, Google", fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.green.shade200,
@@ -357,34 +199,19 @@ class LateAbout extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 100),
-          // const SizedBox(height: spacing),
-
-          Text(
-            "Some other praises and expiriences I've gotten:",
-            style: TextStyle(
+          const AboutText(
+              text: "Some other praises and expiriences I've gotten:",
               fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: color,
-            ),
-          ),
+              fontWeight: FontWeight.w900),
           const SizedBox(height: spacing),
           Row(
-            // crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GradientText(
-                    text: Text(
-                      "ZeBrains internship: ",
-                      style: TextStyle(
-                        fontSize: fontSize,
-                        fontWeight: FontWeight.w400,
-                        color: color,
-                      ),
-                    ),
+                    text: const AboutText(text: "ZeBrains internship: "),
                     gradient: LinearGradient(
                       colors: [
                         Colors.blue.shade200,
@@ -392,55 +219,19 @@ class LateAbout extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  // Text(
-                  //   "ZeBrains internship: ",
-                  //   style: TextStyle(
-                  //     fontSize: fontSize,
-                  //     fontWeight: FontWeight.w400,
-                  //     color: color,
-                  //   ),
-                  // ),
-                  Text(
-                    "Go2Data hackathon: ",
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
-                  Text(
-                    "Very good friend award:       ",
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
+                  const AboutText(text: "Go2Data hackathon: "),
+                  const AboutText(text: "Very good friend award:       "),
                 ],
               ),
               Column(
-                // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Summer-Fall 2021, Data Scientis",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
+                  const AboutText(
+                      text: "Summer-Fall 2021, Data Scientist", fontSize: 21),
                   const SizedBox(height: 13),
                   GradientText(
-                    text: Text(
-                      "Duoed the victory",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: color,
-                      ),
-                    ),
+                    text: const AboutText(
+                        text: "Duoed the victory", fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.red.shade800,
@@ -449,22 +240,7 @@ class LateAbout extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 13),
-                  // Text(
-                  //   "Duoed the victory",
-                  //   style: TextStyle(
-                  //     fontSize: fontSize,
-                  //     fontWeight: FontWeight.w400,
-                  //     color: color,
-                  //   ),
-                  // ),
-                  Text(
-                    "By all of my friends!",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      color: color,
-                    ),
-                  ),
+                  const AboutText(text: "By all of my friends!", fontSize: 21),
                 ],
               ),
             ],

@@ -1,6 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+class ClickableText extends StatelessWidget {
+  final String text;
+  final String url;
+  final Color color;
+  const ClickableText(
+      {Key? key, required this.text, required this.url, required this.color})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontFamily: 'Nunito',
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: color,
+        ),
+      ),
+      onPressed: () async {
+        final Uri _url = Uri.parse(url);
+        if (await canLaunchUrl(_url)) {
+          await launchUrl(_url);
+        } else {
+          throw 'Could not launch $_url';
+        }
+      },
+    );
+  }
+}
+
 class Contanct extends StatelessWidget {
   final double fontsize = 20;
   const Contanct({Key? key}) : super(key: key);
@@ -16,8 +48,9 @@ class Contanct extends StatelessWidget {
             child: Text(
               "I'm open for contact",
               style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w400,
+                fontSize: 70,
+                fontWeight: FontWeight.w900,
+                fontFamily: 'Nunito ExtraBold',
                 color: Colors.white,
               ),
             ),
@@ -25,75 +58,25 @@ class Contanct extends StatelessWidget {
           const SizedBox(height: 30),
           Row(
             children: [
-              TextButton(
-                child: Text(
-                  'GitHub',
-                  style: TextStyle(
-                    fontSize: fontsize,
-                    color: Colors.black,
-                  ),
-                ),
-                onPressed: () async {
-                  final Uri github = Uri.parse('https://github.com/empyempt');
-                  if (await canLaunchUrl(github)) {
-                    await launchUrl(github);
-                  } else {
-                    throw 'Could not launch $github';
-                  }
-                },
+              const ClickableText(
+                text: 'GitHub',
+                url: 'https://github.com/empyempt',
+                color: Colors.black,
               ),
-              TextButton(
-                child: Text(
-                  'Telegram',
-                  style: TextStyle(
-                    fontSize: fontsize,
-                    color: Colors.blue.shade300,
-                  ),
-                ),
-                onPressed: () async {
-                  final Uri tg = Uri.parse('https://t.me/empyempt');
-                  if (await canLaunchUrl(tg)) {
-                    await launchUrl(tg);
-                  } else {
-                    throw 'Could not launch $tg';
-                  }
-                },
+              ClickableText(
+                text: 'Telegram',
+                url: 'https://t.me/empyempt',
+                color: Colors.blue.shade300,
               ),
-              TextButton(
-                child: Text(
-                  'Email',
-                  style: TextStyle(
-                    fontSize: fontsize,
-                    color: Colors.red.shade400,
-                  ),
-                ),
-                onPressed: () async {
-                  final Uri email = Uri.parse(
-                      'mailto:3mptinessy@gmail.com?subject=Hey&body=message');
-                  if (await canLaunchUrl(email)) {
-                    await launchUrl(email);
-                  } else {
-                    throw 'Could not launch $email';
-                  }
-                },
+              ClickableText(
+                text: 'Email',
+                url: 'mailto:3mptinessy@gmail.com?subject=Worky&body=Hello!',
+                color: Colors.red.shade400,
               ),
-              TextButton(
-                child: Text(
-                  'Instagram',
-                  style: TextStyle(
-                    fontSize: fontsize,
-                    color: Colors.pink.shade600,
-                  ),
-                ),
-                onPressed: () async {
-                  final Uri email =
-                      Uri.parse('https://www.instagram.com/empyempt/');
-                  if (await canLaunchUrl(email)) {
-                    await launchUrl(email);
-                  } else {
-                    throw 'Could not launch $email';
-                  }
-                },
+              ClickableText(
+                text: 'Instagram',
+                url: 'https://www.instagram.com/empyempt/',
+                color: Colors.pink.shade600,
               ),
             ],
           ),
