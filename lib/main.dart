@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
         blur = controller.offset / (screenHeight - 200) * 10;
         if (blur > 10) blur = 10;
         if (blur < 1) blur = 1;
-        return;
+        // return;
       }
 
       // print(blur);
@@ -96,11 +96,12 @@ class _HomePageState extends State<HomePage> {
           opacity = 2 - controller.offset / fadeInStart;
           if (opacity > 0.9) opacity = 0.9;
           if (opacity < 0.1) opacity = 0.1;
-          return;
+          // return;
+        } else {
+          opacity = 1 - (1 - (controller.offset / 8900)) / 0.1 + 0.38;
+          if (opacity > 0.9) opacity = 0.9;
+          if (opacity < 0.1) opacity = 0.1;
         }
-        opacity = 1 - (1 - (controller.offset / 8900)) / 0.1 + 0.38;
-        if (opacity > 0.9) opacity = 0.9;
-        if (opacity < 0.1) opacity = 0.1;
       }
 
       // if (controller.offset > fadeInStart && controller.offset < fadeOutStart) {
@@ -162,6 +163,7 @@ class _HomePageState extends State<HomePage> {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
           child: ListView(
+            cacheExtent: double.infinity,
             controller: controller,
             children: [
               const SizedBox(height: 15),
