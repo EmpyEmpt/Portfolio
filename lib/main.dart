@@ -18,7 +18,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'BIG MOVES',
+      title: 'EmpyEmpt',
       debugShowCheckedModeBanner: false,
       // theme: ThemeData(
       //   splashColor: Colors.transparent,

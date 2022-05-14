@@ -26,16 +26,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    # - images/bkbw.jpg
-    # - images/test.jpg
     - images/
     - images/Examples/
     - images/QR/
   fonts:
-    - family: NotoEmoji
-      fonts:
-        - asset: fonts/NotoColorEmoji.ttf
-          weight: 400
     - family: Nunito
       fonts:
         - asset: fonts/Nunito-Regular.ttf
