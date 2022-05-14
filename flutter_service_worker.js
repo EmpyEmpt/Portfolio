@@ -36,9 +36,9 @@ const RESOURCES = {
 "icons/android-chrome-512x512.png": "6de1148a4b46958e3c6ad48720d22a9d",
 "icons/favicon-16x16.png": "33c92b00806a82a7284666f4beb4efd6",
 "icons/favicon-32x32.png": "c3ff03eb14ff7d0cd6731cb3c41c8e09",
-"index.html": "74a623c9d40d07f2e2158b275c67115a",
-"/": "74a623c9d40d07f2e2158b275c67115a",
-"main.dart.js": "3a067fd9f64285e4d38814b4f565da06",
+"index.html": "c816d4f1339b34066435b92938cd7c96",
+"/": "c816d4f1339b34066435b92938cd7c96",
+"main.dart.js": "c17f4dd30c703acc10cf1e02e869ad1f",
 "manifest.json": "f5ef0c870f6ac7d79280847951fc0ce2",
 "version.json": "009c9e65172e010890f7f65fde438006"
 };
