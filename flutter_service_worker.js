@@ -31,16 +31,21 @@ const RESOURCES = {
 "assets/images/QR/segm.png": "7dd783026efce2504e23a30151f355d3",
 "assets/images/test.jpg": "c0134aa75a47c78ae4402dc8c674fb67",
 "assets/NOTICES": "0cf0da1940c17c4a68e912ebae31fe84",
+"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
+"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba",
+"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
+"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
 "favicon.png": "c3ff03eb14ff7d0cd6731cb3c41c8e09",
+"flutter.js": "0816e65a103ba8ba51b174eeeeb2cb67",
 "icons/android-chrome-192x192.png": "c4ddd9c219075e7fa7d50c340161ca5d",
 "icons/android-chrome-512x512.png": "6de1148a4b46958e3c6ad48720d22a9d",
 "icons/favicon-16x16.png": "33c92b00806a82a7284666f4beb4efd6",
 "icons/favicon-32x32.png": "c3ff03eb14ff7d0cd6731cb3c41c8e09",
 "index.html": "c816d4f1339b34066435b92938cd7c96",
 "/": "c816d4f1339b34066435b92938cd7c96",
-"main.dart.js": "c17f4dd30c703acc10cf1e02e869ad1f",
+"main.dart.js": "5719846d1c7cfd270fee6ca81417047c",
 "manifest.json": "f5ef0c870f6ac7d79280847951fc0ce2",
-"version.json": "009c9e65172e010890f7f65fde438006"
+"version.json": "60a71d692c6e6a566ef45d00a046e4e4"
 };
 
 // The application shell files that are downloaded before a service worker can
