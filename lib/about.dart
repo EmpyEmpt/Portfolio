@@ -136,9 +136,10 @@ class LateAbout extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   AboutText(text: "Languages: "),
-                  AboutText(text: "DS libraries: "),
+                  AboutText(text: "ML/DL libraries: "),
                   AboutText(text: "Other python libraries:    "),
                   AboutText(text: "Technologies: "),
+                  // AboutText(text: "and much much more...: "),
                 ],
               ),
               // Names
@@ -161,7 +162,7 @@ class LateAbout extends StatelessWidget {
                   GradientText(
                     text: const AboutText(
                         text:
-                            "Tensofrlow, FastAI, Scikit, Pandas, Seaborn & matplotlib, open-cv",
+                            "Tensofrlow, Torch higher-level API, Scikit, open-cv",
                         fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
@@ -174,7 +175,9 @@ class LateAbout extends StatelessWidget {
                   const SizedBox(height: 12),
                   GradientText(
                     text: const AboutText(
-                        text: "Numpy, DLib, Flask", fontSize: 21),
+                        text:
+                            "Numpy, DLib, Flask, Pandas, Seaborn & matplotlib, wandb",
+                        fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.yellow.shade200,
@@ -185,7 +188,8 @@ class LateAbout extends StatelessWidget {
                   const SizedBox(height: 12),
                   GradientText(
                     text: const AboutText(
-                        text: "Git, DVC, SQL, Docker, Google", fontSize: 21),
+                        text: "Git, DVC, SQL, Docker, Google Search Engine",
+                        fontSize: 21),
                     gradient: LinearGradient(
                       colors: [
                         Colors.green.shade200,
@@ -240,7 +244,8 @@ class LateAbout extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 13),
-                  const AboutText(text: "By all of my friends!", fontSize: 21),
+                  const RainbowText(
+                      text: "By all of my friends!", fontSize: 21),
                 ],
               ),
             ],

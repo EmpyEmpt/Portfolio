@@ -40,6 +40,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = ScrollController();
   double screenHeight = 1000.0;
+  double screenWidth = 1920.0;
   double blur = 1;
 
   double opacity = 0.9;
@@ -71,55 +72,87 @@ class _HomePageState extends State<HomePage> {
   }
 
   onScroll() {
-    setState(() {
-      // print(controller.offset);
-
-      if (controller.offset > 400 && !_visible) {
+    if (controller.offset > 400 && !_visible) {
+      setState(() {
         _visible = true;
-      }
+      });
+    }
 
-      if (controller.offset < 400 && _visible) {
+    if (controller.offset < 400 && _visible) {
+      setState(() {
         _visible = false;
+      });
+    }
+
+    if (controller.offset < 700) {
+      double tmpBlur;
+
+      tmpBlur = controller.offset / (screenHeight - 200) * 10;
+      if (tmpBlur > 10) tmpBlur = 10;
+      if (tmpBlur < 1) tmpBlur = 1;
+
+      if (tmpBlur + 0.05 > blur || tmpBlur - 0.05 < blur) {
+        setState(() {
+          blur = tmpBlur;
+        });
       }
 
-      if (controller.offset < 700) {
-        blur = controller.offset / (screenHeight - 200) * 10;
-        if (blur > 10) blur = 10;
-        if (blur < 1) blur = 1;
-        // return;
+      // return;
+    }
+
+    // print(opacity);
+
+    if (controller.offset > fadeInStart) {
+      double tmpOpacity = 0;
+      if (controller.offset < fadeOutStart) {
+        tmpOpacity = 2 - controller.offset / fadeInStart;
+      } else {
+        tmpOpacity = 1 - (1 - (controller.offset / 8900)) / 0.1 + 0.38;
       }
+      if (tmpOpacity > 0.9) tmpOpacity = 0.9;
+      if (tmpOpacity < 0.1) tmpOpacity = 0.1;
 
-      // print(blur);
-
-      if (controller.offset > fadeInStart) {
-        if (controller.offset < fadeOutStart) {
-          opacity = 2 - controller.offset / fadeInStart;
-          if (opacity > 0.9) opacity = 0.9;
-          if (opacity < 0.1) opacity = 0.1;
-          // return;
-        } else {
-          opacity = 1 - (1 - (controller.offset / 8900)) / 0.1 + 0.38;
-          if (opacity > 0.9) opacity = 0.9;
-          if (opacity < 0.1) opacity = 0.1;
-        }
+      if (tmpOpacity - 0.05 > opacity || tmpOpacity + 0.05 < opacity) {
+        setState(() {
+          opacity = tmpOpacity;
+        });
       }
+    }
+    // print(opacity);
 
-      // if (controller.offset > fadeInStart && controller.offset < fadeOutStart) {
-      //   opacity = 2 - controller.offset / fadeInStart;
-      // }
-      // if (controller.offset > fadeOutStart) {
-      //   opacity = 1 - (1 - (controller.offset / 8700)) / 0.1 + 0.38;
-      //   // print(opacity);
-      // }
-      // if (opacity > 0.9) opacity = 0.9;
-      // if (opacity < 0.1) opacity = 0.1;
-      // print(opacity);
-    });
+    // setState(() {});
+
+    // setState(() {
+    // print(controller.offset);
+    // if (controller.offset > 400 && !_visible) {
+    //   _visible = true;
+    // }
+    // if (controller.offset < 400 && _visible) {
+    //   _visible = false;
+    // }
+    // if (controller.offset < 700) {
+    //   blur = controller.offset / (screenHeight - 200) * 10;
+    //   if (blur > 10) blur = 10;
+    //   if (blur < 1) blur = 1;
+    //   // return;
+    // }
+    // print(blur);
+    // if (controller.offset > fadeInStart) {
+    //   if (controller.offset < fadeOutStart) {
+    //     opacity = 2 - controller.offset / fadeInStart;
+    //   } else {
+    //     opacity = 1 - (1 - (controller.offset / 8900)) / 0.1 + 0.38;
+    //   }
+    //   if (opacity > 0.9) opacity = 0.9;
+    //   if (opacity < 0.1) opacity = 0.1;
+    // }
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       floatingActionButton: AnimatedOpacity(
         opacity: _visible ? 1.0 : 0.0,
@@ -156,7 +189,11 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black,
           image: DecorationImage(
             opacity: opacity,
-            image: const AssetImage('images/bkbw.jpg'),
+            image: ResizeImage(
+              const AssetImage('images/bkbw.jpg'),
+              width: screenWidth.toInt(),
+              height: screenHeight.toInt(),
+            ),
             fit: BoxFit.cover,
           ),
         ),

@@ -54,7 +54,7 @@ class Introduction extends StatelessWidget {
               ),
               GradientText(
                 text: const Text(
-                  "A Data Scientist",
+                  "A Data Scientist ",
                   style: TextStyle(
                       fontSize: 80,
                       fontFamily: 'Nunito',
